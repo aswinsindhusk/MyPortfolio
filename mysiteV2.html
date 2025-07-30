@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aswin Sindhu S K | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22><tspan fill=%22%23C8A2C8%22>S</tspan><tspan>K</tspan></text></svg>">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f8fafc;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after, .active::after {
+            width: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #3b82f6;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            display: inline-block;
+            overflow: hidden;
+            border-right: .15em solid #3b82f6; /* The cursor */
+            white-space: nowrap;
+            letter-spacing: .1em;
+            animation: typing 2s steps(30, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3b82f6; }
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="fixed w-full bg-white/80 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#home" class="text-xl font-bold text-gray-800 flex items-center">
+                        <span class="text-blue-500">A</span>swin
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-500 active">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-500">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-500">Skills</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-blue-500">Experience</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-500">Projects</a>
+                    <a href="#journey" class="nav-link text-gray-700 hover:text-blue-500">My Journey</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-500">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Home</a>
+                <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">About</a>
+                <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Skills</a>
+                <a href="#experience" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Experience</a>
+                <a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Projects</a>
+                <a href="#journey" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">My Journey</a>
+                <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 reveal">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Hi, I'm <span id="typewriter-name" class="text-blue-600"></span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-600 mb-6">Electronics & Communication Engineer</h2>
+                    <p class="text-gray-600 mb-8 max-w-lg">Driven by a passion for humanitarian innovation, I build intelligent systems that bridge gaps and create tangible impact. Let's build a better future, together.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="ASWIN-SINDHU-S-K-FlowCV-Resume-20250715.pdf" download="Aswin_Sindhu_SK_Resume.pdf" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 shadow-lg flex items-center gap-2">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                        <a href="#contact" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300">Contact Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center reveal">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-blue-500 rounded-full opacity-20 blur-xl floating"></div>
+                        <img src=".\img\profileimage.jpg" alt="Profile" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-gray-800 section-title">About Me</h2>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 reveal">
+                    <img src="img\about.jpg" alt="About Me Image" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="md:w-2/3 reveal">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">A Story of Innovation and Impact</h3>
+                    <p class="text-gray-600 mb-4">
+                        From my first line of code to developing complex AI models, my journey in technology has been driven by a single question: "How can this make a difference?" As an Electronics and Communication Engineering student, I discovered my passion lies at the intersection of embedded systems and artificial intelligence—a space where I can create tangible solutions for real-world humanitarian challenges.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        This led me to develop an AI-powered communication system for children with Cerebral Palsy and Autism, a project that cemented my commitment to assistive technology. Whether it's winning hackathons like the Smart India Hackathon or filing patents for safety devices, my goal remains the same: to leverage technology to empower communities and protect lives. I am constantly learning, building, and seeking new ways to turn innovative ideas into impactful realities.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/aswin-sindhu-sk" target="_blank" class="text-gray-700 hover:text-blue-600 transition duration-300"><i class="fab fa-linkedin-in text-2xl"></i></a>
+                        <a href="https://github.com/aswinsindhusk" target="_blank" class="text-gray-700 hover:text-blue-600 transition duration-300"><i class="fab fa-github text-2xl"></i></a>
+                        <a href="https://x.com/aswinsindhusk" target="_blank" class="text-gray-700 hover:text-blue-600 transition duration-300"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="mailto:aswinsindhusk@gmail.com" class="text-gray-700 hover:text-blue-600 transition duration-300"><i class="fas fa-envelope text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-gray-800 section-title">Technical Skills</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">The tools and technologies I use to bring ideas to life.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4"><i class="fas fa-code text-blue-600 text-xl"></i></div>
+                        <h3 class="text-xl font-semibold text-gray-800">Languages</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Python</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Embedded C</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>HTML, CSS, JavaScript</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>PostgreSQL</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4"><i class="fas fa-brain text-blue-600 text-xl"></i></div>
+                        <h3 class="text-xl font-semibold text-gray-800">AI & Machine Learning</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Machine Learning</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Deep Learning</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>PyTorch, TensorFlow, Keras</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4"><i class="fas fa-microchip text-blue-600 text-xl"></i></div>
+                        <h3 class="text-xl font-semibold text-gray-800">Hardware & IoT</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Embedded Systems</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Internet of Things (IoT)</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Rover Design & Fabrication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-gray-800 section-title">Professional Experience</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">My journey through professional roles and internships</p>
+            </div>
+            <div class="relative max-w-3xl mx-auto">
+                <div class="absolute left-4 md:left-1/2 w-1 h-full bg-gray-200 transform md:-translate-x-1/2"></div>
+                
+                <div class="relative pl-12 md:pl-0 mb-12 reveal">
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-blue-500 rounded-full mt-1.5 -ml-4 border-4 border-white"></div>
+                    <div class="md:w-1/2 md:pr-8 md:float-left md:text-right">
+                        <h3 class="text-xl font-semibold text-gray-800">Project Intern</h3>
+                        <p class="text-blue-600">Humanitarian Technology (HuT) Labs</p>
+                        <p class="text-gray-500 text-sm">2023 - Present</p>
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 md:float-right">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                            <p class="text-gray-600">Developed AI-based solutions addressing humanitarian needs, focusing on creating an AI communication system for children with ASD and Cerebral Palsy.</p>
+                        </div>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+
+                <div class="relative pl-12 md:pl-0 mb-12 reveal">
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-blue-500 rounded-full mt-1.5 -ml-4 border-4 border-white"></div>
+                    <div class="md:w-1/2 md:pl-8 md:float-right md:text-left">
+                        <h3 class="text-xl font-semibold text-gray-800">SISEA Research Internship</h3>
+                        <p class="text-blue-600">Madras Institute of Technology</p>
+                        <p class="text-gray-500 text-sm">2023</p>
+                    </div>
+                    <div class="md:w-1/2 md:pr-8 md:float-left">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                            <p class="text-gray-600">Development and testing of hybrid VGG-16 AI model for accurate tuberculosis detection using chest X-rays.</p>
+                        </div>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+
+                 <div class="relative pl-12 md:pl-0 mb-12 reveal">
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-blue-500 rounded-full mt-1.5 -ml-4 border-4 border-white"></div>
+                    <div class="md:w-1/2 md:pr-8 md:float-left md:text-right">
+                        <h3 class="text-xl font-semibold text-gray-800">Embedded Systems & AI/IoT Intern</h3>
+                        <p class="text-blue-600">National Small Industries Corporation</p>
+                        <p class="text-gray-500 text-sm">2022</p>
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 md:float-right">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                            <p class="text-gray-600">Developed embedded systems integrated with AI and IoT technologies and designed power supply models for IoT applications.</p>
+                        </div>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-gray-800 section-title">Featured Projects</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Innovative solutions that make a difference</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-gray-800 section-title">Education</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">My academic journey and achievements</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                </div>
+        </div>
+    </section>
+
+    <section id="journey" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-gray-800 section-title">My Journey</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">A visual timeline of my growth, projects, and passion for technology.</p>
+            </div>
+
+            <div id="image-carousel" class="relative w-full max-w-4xl mx-auto shadow-xl rounded-lg overflow-hidden reveal">
+                <div id="carousel-slides" class="flex transition-transform duration-500 ease-in-out">
+                    </div>
+
+                <button id="carousel-prev" class="absolute top-1/2 left-3 transform -translate-y-1/2 bg-white/50 hover:bg-white/90 text-gray-800 p-2 rounded-full shadow-md transition-colors">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="carousel-next" class="absolute top-1/2 right-3 transform -translate-y-1/2 bg-white/50 hover:bg-white/90 text-gray-800 p-2 rounded-full shadow-md transition-colors">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div id="carousel-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-gray-800 section-title">Get In Touch</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">I'm always open to discussing new projects, creative ideas, or opportunities to be part of something impactful. Let's connect!</p>
+            </div>
+            <div class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-md reveal">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="mailto:aswinsindhusk@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 shadow-lg flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <i class="fas fa-paper-plane"></i> Say Hello
+                    </a>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/aswin-sindhu-sk" target="_blank" class="bg-gray-100 hover:bg-blue-100 p-3 rounded-full text-gray-700 hover:text-blue-600 transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/aswinsindhusk" target="_blank" class="bg-gray-100 hover:bg-blue-100 p-3 rounded-full text-gray-700 hover:text-blue-600 transition duration-300"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/aswinsindhusk" target="_blank" class="bg-gray-100 hover:bg-blue-100 p-3 rounded-full text-gray-700 hover:text-blue-600 transition duration-300"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">&copy; <span id="copyright-year"></span> Aswin Sindhu S K. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="#home" id="back-to-top" class="bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <div id="project-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center z-[60] p-4">
+        <div class="bg-white rounded-xl shadow-2xl p-6 md:p-8 max-w-2xl w-full transform transition-all duration-300 scale-95 opacity-0" id="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                <button id="modal-close" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            </div>
+            <div id="modal-body" class="space-y-4">
+                </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- DATA ---
+        const projectsData = [
+            { title: "AI Dysarthric Speech Recognition", icon: "fa-brain", color: "blue", year: "2025", tags: ["AI", "ML", "Deep Learning"], description: "A system for kids with speech impairments due to Cerebral Palsy and Autism Spectrum Disorder.", details: "This project focuses on developing a robust AI model to understand and translate dysarthric speech, enabling children with severe speech impediments to communicate effectively. The core challenge was collecting and augmenting a niche dataset to train the model accurately." },
+            { title: "Embedded AI for Borewell Safety", icon: "fa-microchip", color: "purple", year: "2025", tags: ["Embedded", "IoT", "AI"], description: "A real-time monitoring system for borewells and manholes to prevent accidents involving children.", details: "This life-saving system uses ultrasonic sensors and an AI-powered camera module to detect unsafe conditions or the presence of a child near an open borewell, triggering an immediate alert. The system is designed to be low-power and cost-effective." },
+            { title: "Hybrid VGG-16 TB Detection", icon: "fa-x-ray", color: "green", year: "2024", tags: ["AI", "ML", "VGG-16"], description: "An AI model for accurate tuberculosis detection using chest X-rays, developed during my research internship.", details: "This project involved fine-tuning a hybrid VGG-16 model to achieve high accuracy in detecting tuberculosis from chest radiographs, potentially aiding in faster and more accessible diagnosis in remote areas." },
+            { title: "Deep Sea Fisherman Monitoring", icon: "fa-water", color: "yellow", year: "2023", tags: ["Embedded", "IoT", "Patent"], description: "A system to monitor and ensure the safety of deep-sea fishermen by tracking their location and vessel status.", details: "This patented system provides a lifeline for fishermen by using GPS and sensor data to monitor their location and alert authorities if they cross maritime borders or if the vessel is in distress." },
+            { title: "Smart Wearable for Rescue Ops", icon: "fa-tshirt", color: "red", year: "2022", tags: ["Embedded", "IoT", "Patent"], description: "A wearable device designed to assist in emergency rescue operations by monitoring vitals and location.", details: "This patented wearable includes sensors to track the user's vital signs and location, providing crucial data to rescue teams during emergencies like natural disasters." },
+            { title: "IoT Object Avoidance Rover", icon: "fa-robot", color: "indigo", year: "2022", tags: ["Embedded", "IoT", "Robotics"], description: "A land rover system with IoT-based object avoidance capabilities, designed for exploration and surveillance.", details: "This project involved designing and fabricating a rover that can navigate autonomously using ultrasonic sensors and an IoT platform for remote control and data monitoring." }
+        ];
+
+        const educationData = [
+            { degree: "Bachelor of Engineering", major: "Electronics and Communication", school: "Amrita College of Engineering", year: "2021 - 2025", score: "88%" },
+            { degree: "Class XII (ISC)", major: "Science Stream", school: "Excel Central School", year: "2020 - 2021", score: "91%" },
+            { degree: "Class X (ICSE)", major: "General", school: "Excel Central School", year: "2018 - 2019", score: "89.4%" }
+        ];
+        
+        const carouselData = [
+
+            { src: "img/img1.jpg", alt: "IITM RP Vaayusaastra Internship", caption: "IITM RP Vaayusaastra Internship." },
+
+            { src: "img/img2.jpg", alt: "Symposium", caption: "National level Symposium at NI University." },
+
+            { src: "img/img3.jpg", alt: "SIH", caption: "Winning 100K RS. Grand for winninh SIH 2022." },
+
+            { src: "img/img4.jpg", alt: "Bestdelegate", caption: "Getting Best Delegate for IIMUN kanniyakumari Chapter 2019." },
+
+            //{ src: "img/img5.jpg", alt: "Bestdelegate", caption: "Getting Best Delegate for IIMUN kanniyakumari CHapter 2019." }
+
+        
+
+        ];
+
+        // --- IMAGE CAROUSEL ---
+        const slidesContainer = document.getElementById("carousel-slides");
+        const dotsContainer = document.getElementById("carousel-dots");
+        const prevButton = document.getElementById("carousel-prev");
+        const nextButton = document.getElementById("carousel-next");
+        let currentIndex = 0;
+        let intervalId = null;
+
+        if (slidesContainer) { // Check if carousel exists on the page
+            carouselData.forEach((slide, index) => {
+                // Create slide
+                const slideElement = document.createElement("div");
+                slideElement.className = "relative flex-shrink-0 w-full";
+                slideElement.innerHTML = `
+                    <img src="${slide.src}" alt="${slide.alt}" class="w-full h-64 md:h-96 object-cover">
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent">
+                        <p class="text-white text-lg font-semibold">${slide.caption}</p>
+                    </div>
+                `;
+                slidesContainer.appendChild(slideElement);
+
+                // Create dot
+                const dotElement = document.createElement("button");
+                dotElement.className = "w-3 h-3 rounded-full bg-white/50 hover:bg-white transition";
+                dotElement.addEventListener("click", () => {
+                    goToSlide(index);
+                    resetInterval();
+                });
+                dotsContainer.appendChild(dotElement);
+            });
+
+            const dots = dotsContainer.children;
+
+            function goToSlide(index) {
+                slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+                if(dots[currentIndex]) dots[currentIndex].classList.remove('bg-white');
+                if(dots[currentIndex]) dots[currentIndex].classList.add('bg-white/50');
+                currentIndex = index;
+                if(dots[currentIndex]) dots[currentIndex].classList.remove('bg-white/50');
+                if(dots[currentIndex]) dots[currentIndex].classList.add('bg-white');
+            }
+
+            function nextSlide() {
+                const nextIndex = (currentIndex + 1) % carouselData.length;
+                goToSlide(nextIndex);
+            }
+            
+            function prevSlide() {
+                const prevIndex = (currentIndex - 1 + carouselData.length) % carouselData.length;
+                goToSlide(prevIndex);
+            }
+
+            function startInterval() {
+                intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            }
+
+            function resetInterval() {
+                clearInterval(intervalId);
+                startInterval();
+            }
+
+            nextButton.addEventListener("click", () => {
+                 nextSlide();
+                 resetInterval();
+            });
+
+            prevButton.addEventListener("click", () => {
+                prevSlide();
+                resetInterval();
+            });
+            
+            goToSlide(0); // Initialize first slide
+            startInterval(); // Start auto-sliding
+        }
+
+
+        // --- DYNAMIC CONTENT INJECTION ---
+        const projectsContainer = document.querySelector('#projects .grid');
+        projectsData.forEach((project, index) => {
+            const projectEl = document.createElement('div');
+            projectEl.className = `bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 card-hover reveal`;
+            projectEl.innerHTML = `
+                <div class="h-48 bg-gradient-to-r from-${project.color}-500 to-${project.color}-600 flex items-center justify-center">
+                    <i class="fas ${project.icon} text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">${project.title}</h3>
+                    <p class="text-gray-600 mb-4 h-16">${project.description}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${project.tags.map(tag => `<span class="bg-${project.color}-100 text-${project.color}-800 text-xs px-3 py-1 rounded-full">${tag}</span>`).join('')}
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">${project.year}</span>
+                        <a href="javascript:void(0);" class="view-details-btn text-${project.color}-600 hover:text-${project.color}-800 font-medium" data-index="${index}">View Details →</a>
+                    </div>
+                </div>
+            `;
+            projectsContainer.appendChild(projectEl);
+        });
+
+        const educationContainer = document.querySelector('#education .grid');
+        educationData.forEach(edu => {
+            const eduEl = document.createElement('div');
+            eduEl.className = 'bg-white p-6 rounded-xl shadow-md reveal';
+            eduEl.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4"><i class="fas fa-graduation-cap text-blue-600 text-xl"></i></div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">${edu.degree}</h3>
+                        <p class="text-blue-600">${edu.school}</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-4">${edu.major}</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-500">${edu.year}</span>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">${edu.score}</span>
+                </div>
+            `;
+            educationContainer.appendChild(eduEl);
+        });
+        
+        // --- TYPEWRITER ---
+        const nameElement = document.getElementById('typewriter-name');
+        const nameText = "Aswin Sindhu S K";
+        let charIndex = 0;
+        function typeWriter() {
+            if (charIndex < nameText.length) {
+                nameElement.innerHTML += nameText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 100);
+            } else {
+                nameElement.classList.add('typewriter');
+            }
+        }
+        typeWriter();
+
+        // --- NAVIGATION ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+                if (mobileMenu.contains(this)) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // --- ACTIVE NAV LINK ON SCROLL ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        window.addEventListener('scroll', () => {
+            let current = 'home'; // Default to home
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 70) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // --- SCROLL ANIMATIONS ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => observer.observe(el));
+
+        // --- BACK TO TOP BUTTON ---
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // --- DYNAMIC COPYRIGHT YEAR ---
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // --- PROJECT MODAL ---
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const closeModalButton = document.getElementById('modal-close');
+
+        document.querySelectorAll('.view-details-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const projectIndex = this.getAttribute('data-index');
+                const project = projectsData[projectIndex];
+                
+                modalTitle.innerText = project.title;
+                modalBody.innerHTML = `
+                    <p class="text-gray-600">${project.details}</p>
+                    <div class="pt-4">
+                        <h4 class="font-semibold text-gray-700 mb-2">Technologies Used:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.tags.map(tag => `<span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                setTimeout(() => modalContent.classList.remove('scale-95', 'opacity-0'), 50);
+            });
+        });
+
+        function closeModal() {
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+
+        closeModalButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
+        });
+    });
+    </script>
+</body>
+</html>
